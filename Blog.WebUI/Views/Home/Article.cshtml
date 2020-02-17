@@ -1,0 +1,23 @@
+﻿@model Blog.Domain.Entities.Article
+
+@{
+    ViewBag.Title = "Article";
+}
+
+<h2>Article</h2>
+<article class="card article">
+    <div class="card-body ">
+        <h4 class="card-title">@Model.Name</h4>
+        <p class="card-text">@Model.Text</p>
+    </div>
+    <div class="card-footer d-flex">
+        <div class="p-2 "> <p class="card-text"> @Model.Date.ToShortDateString() </p></div>
+        <div class="p-2 ml-auto">
+
+            @foreach (var item in Model.Keywords)
+            {
+                <small><mark>@(item.Name + " ")</mark></small>
+            }
+        </div>
+    </div>
+</article>
